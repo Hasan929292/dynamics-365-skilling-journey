@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamics 365 Skilling Journey — From 101 to Developer</title>
+<meta name="description" content="A free, self-paced learning path for Microsoft Dynamics 365: 101 → Functional Consultant → Administrator → Developer. Curated videos, Microsoft Learn modules, and hands-on labs, with progress tracking and a certificate.">
+<meta name="theme-color" content="#1f3a5f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231f3a5f'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Segoe UI,Arial,sans-serif' font-weight='700'%3EDJ%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dynamics 365 Skilling Journey — From 101 to Developer">
+<meta property="og:description" content="A free, self-paced learning path for Microsoft Dynamics 365: 101 → Functional Consultant → Administrator → Developer. Videos, Microsoft Learn modules, hands-on labs, and a certificate.">
+<meta property="og:url" content="https://hasan929292.github.io/dynamics-365-skilling-journey/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dynamics 365 Skilling Journey">
+<meta name="twitter:description" content="Self-paced Microsoft Dynamics 365 learning path: 101 → Functional Consultant → Administrator → Developer.">
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  /* Microsoft Elevate palette — monochromatic blue, no green/teal */
+  --el-ink: #06101c;
+  --el-navy: #0d213b;
+  --el-deep: #1e4c84;
+  --el-mid: #2662aa;
+  --el-primary: #0078d4;
+  --el-sky: #5291de;
+  --el-steel: #87a2c3;
+  --el-lightblue: #b3cae6;
+  --el-white: #ffffff;
+  /* Secondary accent — warm gold, Apple-HIG style purposeful color for achievement/reward moments only */
+  --el-gold: #ad7a1e;
+  --el-gold-soft: #faf1de;
+  --el-gold-fg: #2a1c05;
+  /* Apple-style per-section category colors — used for wayfinding (tier identity), not brand chrome */
+  --tier-1: #0071e3;
+  --tier-2: #7a4fb5;
+  --tier-3: #cc6b00;
+  --tier-4: #c2185b;
+  --font: "Segoe UI", system-ui, Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-semi: "Segoe UI Semibold", "Segoe UI", system-ui, sans-serif;
+
+  --cp-bg: var(--el-white);
+  --cp-bg-elevated: #f4f8fc;
+  --cp-surface: var(--el-white);
+  --cp-surface-soft: #eaf1f9;
+  --cp-border: #d9e2ee;
+  --cp-border-strong: var(--el-steel);
+  --cp-text: var(--el-ink);
+  --cp-text-muted: #33455c;
+  --cp-text-soft: var(--el-steel);
+  --cp-accent: var(--el-primary);
+  --cp-accent-hover: var(--el-deep);
+  --cp-accent-soft: #e3edf9;
+  --cp-accent-fg: #ffffff;
+  --cp-success: var(--el-primary);
+  --cp-danger: #b3261e;
+  --cp-warning: #92600a;
+  --cp-link: var(--el-primary);
+  --cp-shadow: none;
+  --cp-overlay: rgba(255, 255, 255, 0.9);
+  --cp-panel: #ffffff;
+  --cp-panel-strong: #ffffff;
+  --cp-sheen: transparent;
+  --cp-highlight: #e3edf9;
+
+  /* per-content-type colors — tuned for contrast against light bg */
+  --type-video: var(--el-primary);
+  --type-module: var(--el-mid);
+  --type-path: var(--el-deep);
+  --type-lab: var(--el-gold);
+  --type-lab-text: #ffffff;
+  --type-lab-notch: var(--el-navy);
+  --type-classroom: var(--el-navy);
+  --type-classroom-ring: #ffffff;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: var(--el-navy);
+  --cp-bg-elevated: #122438;
+  --cp-surface: #122438;
+  --cp-surface-soft: #16304a;
+  --cp-border: #234163;
+  --cp-border-strong: var(--el-mid);
+  --cp-text: #eef3f9;
+  --cp-text-muted: var(--el-lightblue);
+  --cp-text-soft: var(--el-steel);
+  --cp-accent: var(--el-sky);
+  --cp-accent-hover: var(--el-lightblue);
+  --cp-accent-soft: #1a3a5c;
+  --cp-accent-fg: var(--el-navy);
+  --cp-success: var(--el-sky);
+  --cp-danger: #e0645c;
+  --cp-warning: #d1a341;
+  --cp-link: var(--el-sky);
+  --cp-shadow: none;
+  --cp-overlay: rgba(13, 33, 59, 0.92);
+  --cp-panel: #122438;
+  --cp-panel-strong: #122438;
+  --cp-sheen: transparent;
+  --cp-highlight: #1a3a5c;
+
+  /* Secondary accent — brighter gold for dark backgrounds */
+  --el-gold: #e0ac4c;
+  --el-gold-soft: #2b2210;
+  --el-gold-fg: #241a04;
+
+  /* Apple-style per-section category colors, re-tuned for legibility on navy */
+  --tier-1: #4da3ff;
+  --tier-2: #b98bea;
+  --tier-3: #ffab4d;
+  --tier-4: #ff6fa5;
+
+  /* per-content-type colors — re-tuned so each is legible against a navy background */
+  --type-video: var(--el-sky);
+  --type-module: #4a7fc4;
+  --type-path: var(--el-lightblue);
+  --type-lab: var(--el-gold);
+  --type-lab-text: var(--el-gold-fg);
+  --type-lab-notch: var(--el-navy);
+  --type-classroom: var(--el-primary);
+  --type-classroom-ring: #ffffff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--cp-bg);
+  color: var(--cp-text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 64px; }
+
+/* Site header */
+.site-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 24px; flex-wrap: wrap; margin: 0 0 20px; margin-left: -20px; margin-right: -20px;
+  background: var(--el-navy); color: #fff;
+}
+.site-brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-semi); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; color: #fff; }
+.site-brand .logo-dot {
+  width: 28px; height: 28px; background: var(--el-primary); color: #ffffff;
+  display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.02em;
+}
+.site-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.site-actions a, .site-actions button {
+  border: 1px solid rgba(255,255,255,0.35); background: transparent; color: #fff;
+  padding: 7px 14px; font-size: 0.8rem; cursor: pointer; font-family: inherit;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+.site-actions a:hover, .site-actions button:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+.site-actions .primary { background: var(--el-gold); border-color: var(--el-gold); color: var(--el-gold-fg); }
+.site-actions .primary:hover { background: #c99a3d; border-color: #c99a3d; color: var(--el-gold-fg); }
+
+/* Header */
+.hero {
+  background: linear-gradient(135deg, var(--el-deep) 0%, var(--el-sky) 100%);
+  border: none;
+  padding: 32px 30px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.hero h1 { margin: 0 0 8px; font-size: 1.6rem; font-family: var(--font-semi); font-weight: 600; letter-spacing: -0.01em; color: #fff; }
+.hero p { margin: 0; color: rgba(255,255,255,0.88); max-width: 680px; }
+.hero-meta { display: flex; gap: 32px; margin-top: 20px; flex-wrap: wrap; }
+.hero-stat { display: flex; flex-direction: column; }
+.hero-stat b { font-size: 1.4rem; font-family: var(--font-semi); font-weight: 600; color: #fff; }
+.hero-stat span { font-size: 0.72rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.06em; }
+.overall-bar {
+  margin-top: 18px; height: 6px; background: rgba(255,255,255,0.25);
+  overflow: hidden; position: relative; border: none;
+}
+.overall-bar > div { height: 100%; background: #ffffff; transition: width .4s ease; }
+.hero-actions { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+.ghost-btn {
+  border: 1.5px solid rgba(255,255,255,0.65); background: rgba(255,255,255,0.06); color: #fff;
+  padding: 10px 18px; font-size: 0.86rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.ghost-btn:hover { border-color: #fff; background: rgba(255,255,255,0.16); }
+.ghost-btn.danger:hover { border-color: #ffb4b4; color: #ffdada; }
+.ghost-btn.gold-fill {
+  border-color: var(--el-gold); background: var(--el-gold); color: var(--el-gold-fg);
+}
+.ghost-btn.gold-fill:hover { background: #c99a3d; border-color: #c99a3d; }
+.hero-btn-primary {
+  border: 1px solid #ffffff; background: #ffffff; color: var(--el-deep);
+  padding: 10px 18px; font-size: 0.86rem; font-family: var(--font-semi); font-weight: 700;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.hero-btn-primary:hover { background: #eef2f7; }
+.toast {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--cp-text); color: var(--cp-bg); padding: 9px 18px;
+  font-size: 0.82rem; opacity: 0; transition: all .25s ease; pointer-events: none; z-index: 50;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Search */
+.search-bar {
+  display: flex; align-items: center; gap: 10px; background: var(--cp-surface); border: 1px solid var(--cp-border);
+  padding: 9px 16px; margin-bottom: 18px;
+}
+.search-bar input {
+  border: none; outline: none; background: transparent; color: var(--cp-text); font-family: inherit;
+  font-size: 0.92rem; flex: 1;
+}
+.search-bar .sx { color: var(--cp-text-soft); font-size: 0.8rem; cursor: pointer; display: none; }
+
+/* Badge rail */
+.badge-rail { display: flex; gap: 1px; margin-bottom: 18px; flex-wrap: wrap; background: var(--cp-border); border: 1px solid var(--cp-border); }
+.badge-chip {
+  flex: 1; min-width: 150px;
+  background: var(--cp-surface); border: none;
+  padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;
+  transition: background-color .15s ease;
+}
+.badge-chip:hover { background: var(--cp-surface-soft); }
+.badge-chip.active { background: var(--cp-accent-soft); box-shadow: inset 3px 0 0 var(--tier-color, var(--el-primary)); }
+.badge-medal {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 700; flex-shrink: 0; border: 1.5px solid var(--tier-color, var(--cp-border-strong));
+  background: var(--cp-surface-soft); color: var(--tier-color, var(--cp-text-soft));
+}
+.badge-chip.earned { background: var(--el-gold-soft); }
+.badge-chip.earned .badge-medal { border-color: var(--el-gold); background: var(--el-gold); color: var(--el-gold-fg); }
+.badge-chip .bc-title { font-weight: 600; font-size: 0.92rem; }
+.badge-chip .bc-sub { font-size: 0.76rem; color: var(--cp-text-soft); }
+.tier-dot { width: 8px; height: 8px; display: inline-block; background: var(--tier-color, var(--el-primary)); margin-right: 6px; flex-shrink: 0; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-bottom: 18px; flex-wrap: wrap; border-bottom: 1px solid var(--cp-border); padding-bottom: 4px; }
+.tab-btn {
+  border: none; background: transparent; color: var(--cp-text-muted);
+  padding: 9px 16px; font-size: 0.85rem; cursor: pointer; font-family: inherit;
+  transition: all .15s ease; display: inline-flex; align-items: center;
+}
+.tab-btn.active { background: var(--tier-color, var(--el-deep)); color: #fff; font-family: var(--font-semi); font-weight: 600; }
+.tab-btn.active .tier-dot { background: rgba(255,255,255,0.85); }
+.tab-btn:not(.active):hover { color: var(--cp-accent); background: var(--cp-accent-soft); }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+.panel-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+.panel-head h2 { margin: 0 0 4px; font-size: 1.15rem; font-family: var(--font-semi); font-weight: 600; display: flex; align-items: center; }
+.panel-head h2 .tier-dot { width: 10px; height: 10px; }
+.panel-head p { margin: 0; color: var(--cp-text-muted); font-size: 0.9rem; max-width: 560px; }
+.panel-progress { font-size: 0.82rem; color: var(--cp-text-soft); white-space: nowrap; }
+
+/* Legend */
+.legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.8rem; color: var(--cp-text-muted); align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend .lg-dot { width: 14px; height: 14px; background: var(--cp-border-strong); display: inline-block; flex-shrink: 0; }
+.legend .lg-dot.type-video     { background: var(--type-video); }
+.legend .lg-dot.type-module    { background: var(--type-module); }
+.legend .lg-dot.type-path      { background: var(--type-path); transform: rotate(45deg); width: 11px; height: 11px; }
+.legend .lg-dot.type-lab       { width: 0; height: 0; background: transparent; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 14px solid var(--type-lab); }
+.legend .lg-dot.type-classroom { background: var(--type-classroom); box-shadow: inset 0 0 0 2px var(--type-classroom-ring); }
+
+/* Classroom callout */
+.callout {
+  border: 1px solid var(--cp-border); border-left: 3px solid var(--tier-color, var(--cp-accent)); padding: 14px 18px; margin-bottom: 18px;
+  background: var(--cp-surface); display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+}
+.callout a.pill {
+  text-decoration: none; font-size: 0.8rem; padding: 6px 12px;
+  background: var(--el-deep); color: #fff; border: 1px solid var(--el-deep);
+  font-weight: 600; white-space: nowrap;
+}
+.callout a.pill:hover { background: var(--el-navy); border-color: var(--el-navy); }
+
+/* Cards */
+.card-grid { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--cp-border); border-bottom: none; }
+.res-card {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--cp-surface); border-bottom: 1px solid var(--cp-border);
+  padding: 14px 16px;
+}
+.res-card:hover { background: var(--cp-bg-elevated); }
+.res-card.done { opacity: 0.55; }
+.res-check {
+  width: 20px; height: 20px; border: 1px solid var(--cp-border-strong);
+  flex-shrink: 0; margin-top: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  background: var(--cp-surface); font-size: 0.75rem; color: transparent;
+}
+.res-check.checked { background: var(--cp-success); border-color: var(--cp-success); color: #fff; }
+.res-type {
+  flex-shrink: 0; font-size: 0.64rem; font-weight: 700; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center; background: var(--el-mid);
+  border: none; color: #ffffff; letter-spacing: 0.02em;
+}
+/* Distinct shape + blue-shade per content type (monochrome-blue, shape carries the meaning; no rounded corners) */
+.res-type.type-video    { background: var(--type-video); color: #ffffff; }
+.res-type.type-module   { background: var(--type-module); color: #ffffff; }
+.res-type.type-path     { background: var(--type-path); color: #ffffff; transform: rotate(45deg); }
+.res-type.type-path span { display: inline-block; transform: rotate(-45deg); }
+.res-type.type-lab      { background: var(--type-lab); color: var(--type-lab-text); position: relative; }
+.res-type.type-lab::after {
+  content: ""; position: absolute; top: 0; right: 0; width: 0; height: 0;
+  border-style: solid; border-width: 0 11px 11px 0; border-color: transparent var(--type-lab-notch) transparent transparent;
+}
+.res-type.type-classroom{ background: var(--type-classroom); color: #ffffff; box-shadow: inset 0 0 0 2px var(--type-classroom-ring); }
+.res-body { flex: 1; min-width: 0; }
+.res-title { font-weight: 600; font-size: 0.94rem; margin: 0 0 3px; }
+.res-meta { font-size: 0.78rem; color: var(--cp-text-soft); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
+.res-tier-tag { font-size: 0.68rem; color: var(--cp-accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.tag {
+  font-size: 0.68rem; padding: 1px 8px; border: 1px solid var(--cp-border);
+  color: var(--cp-text-muted); text-transform: uppercase; letter-spacing: 0.04em;
+}
+.res-url {
+  font-size: 0.72rem; color: var(--cp-text-soft); word-break: break-all; margin: 0;
+  font-family: Consolas, "Courier New", Courier, monospace;
+}
+.res-actions { display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
+.res-link, .res-copy {
+  text-decoration: none; font-size: 0.76rem; font-weight: 600; color: var(--cp-text);
+  border: 1px solid var(--cp-border); padding: 6px 12px; white-space: nowrap;
+  background: var(--cp-surface); cursor: pointer; font-family: inherit; text-align: center;
+}
+.res-link:hover, .res-copy:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+
+/* Certificate */
+.cert-wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.cert-input {
+  width: 100%; max-width: 360px; padding: 10px 14px; border: 1px solid var(--cp-border);
+  background: var(--cp-surface); color: var(--cp-text); font-family: inherit; font-size: 0.95rem;
+}
+.certificate {
+  width: 100%; max-width: 680px; aspect-ratio: 16/10; position: relative;
+  background: var(--cp-bg-elevated); border: 1px solid var(--cp-text); outline: 1px solid var(--el-gold); outline-offset: -6px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 30px; gap: 6px;
+}
+.certificate .cert-kicker { letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.7rem; color: var(--el-gold); font-weight: 700; }
+.certificate h3 { margin: 4px 0; font-size: 1.5rem; font-family: var(--font-semi); font-weight: 600; color: var(--el-navy); }
+.certificate .cert-name { font-size: 1.7rem; font-family: var(--font-semi); font-weight: 600; color: var(--el-primary); margin: 8px 0; }
+.certificate .cert-line { font-size: 0.85rem; color: var(--cp-text-muted); max-width: 420px; }
+.certificate .cert-date { font-size: 0.72rem; color: var(--el-steel); margin-top: 8px; }
+.cert-badges { display: flex; gap: 8px; margin-top: 12px; }
+.cert-badges span {
+  width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+  background: var(--cp-surface-soft); border: 1px solid var(--cp-border); font-size: 0.7rem; font-weight: 700; color: var(--cp-text-soft);
+}
+.cert-badges span.on { background: var(--el-gold); border-color: var(--el-gold); color: var(--el-gold-fg); }
+.cert-btn-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.print-btn {
+  border: 1px solid var(--cp-accent); background: var(--cp-accent); color: var(--cp-accent-fg); padding: 10px 22px;
+  font-family: inherit; font-weight: 600; font-size: 0.86rem; cursor: pointer;
+}
+.print-btn:hover { background: var(--cp-accent-hover); border-color: var(--cp-accent-hover); }
+.print-btn.secondary { background: var(--cp-surface); color: var(--cp-text); border: 1px solid var(--cp-border); }
+.print-btn.secondary:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+
+footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); text-align: center; line-height: 1.6; border-top: 1px solid var(--cp-border); padding-top: 20px; }
+.empty-state { text-align: center; padding: 40px 20px; color: var(--cp-text-soft); }
+
+@media print {
+  .hero, .badge-rail, .tabs, .callout, .card-grid, footer, .cert-input, .cert-btn-row, .site-header, .search-bar, .legend { display: none !important; }
+  #panel-cert { display: block !important; }
+  .cert-wrap { padding-top: 40px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="site-header">
+    <div class="site-brand"><span class="logo-dot">DJ</span> Dynamics 365 Skilling Journey</div>
+    <div class="site-actions">
+      <button id="share-page">Share</button>
+      <a href="https://github.com/Hasan929292/dynamics-365-skilling-journey" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="primary" href="https://github.com/Hasan929292/dynamics-365-skilling-journey/issues/new?title=Suggestion%20for%20Dynamics%20365%20Skilling%20Journey" target="_blank" rel="noopener">Suggest a resource</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Dynamics 365 Skilling Journey</h1>
+    <p>101 → Functional Consultant → Administrator → Developer. Videos, Microsoft Learn modules, and hands-on labs — check items off as you go and earn a badge per tier.</p>
+    <p style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:8px;">An independent, community-curated learning path pointing to public Microsoft Learn and YouTube resources. Not an official Microsoft site.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><b id="stat-done">0</b><span>Items complete</span></div>
+      <div class="hero-stat"><b id="stat-total">0</b><span>Total items</span></div>
+      <div class="hero-stat"><b id="stat-badges">0 / 4</b><span>Badges earned</span></div>
+    </div>
+    <div class="overall-bar"><div id="overall-fill" style="width:0%"></div></div>
+    <div class="hero-actions">
+      <button class="hero-btn-primary" id="copy-resume">Copy resume link (saves your progress)</button>
+      <button class="ghost-btn gold-fill" id="report-completion">Report your completion</button>
+      <button class="ghost-btn danger" id="reset-btn">Reset progress</button>
+    </div>
+    <p style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:10px;max-width:640px;">"Report your completion" is optional and opens a Microsoft Form in a new tab. It asks only for your name, work email, company, and which tier you finished — nothing is collected unless you choose to submit it.</p>
+  </div>
+
+  <div class="search-bar">
+    <span style="color:var(--cp-text-soft);font-size:0.8rem;">Search</span>
+    <input id="search-input" placeholder="Search all videos, modules, and labs across every tier..." />
+    <span class="sx" id="search-clear">Clear</span>
+  </div>
+
+  <div class="legend">
+    <span><span class="lg-dot type-video"></span>Video</span><span><span class="lg-dot type-module"></span>Learn module</span><span><span class="lg-dot type-path"></span>Learn path</span><span><span class="lg-dot type-lab"></span>Hands-on lab</span><span><span class="lg-dot type-classroom"></span>Instructor-led classroom</span>
+  </div>
+
+  <div class="badge-rail" id="badge-rail"></div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div id="panels"></div>
+
+  <div class="panel" id="panel-search">
+    <div class="panel-head"><div><h2>Search results</h2><p id="search-summary"></p></div></div>
+    <div class="card-grid" id="search-grid"></div>
+  </div>
+
+  <div class="panel" id="panel-cert">
+    <div class="panel-head">
+      <div>
+        <h2>Your Certificate</h2>
+        <p>Enter your name and print/save as PDF once all four badges are earned (or anytime, as a progress snapshot).</p>
+      </div>
+    </div>
+    <div class="cert-wrap">
+      <input class="cert-input" id="cert-name" placeholder="Type your full name..." />
+      <div class="certificate">
+        <div class="cert-kicker">Dynamics 365 Skilling Journey</div>
+        <h3>Certificate of Completion</h3>
+        <div class="cert-name" id="cert-name-out">Your Name</div>
+        <div class="cert-line">has completed the Dynamics 365 101 → Functional Consultant → Administrator → Developer learning journey, covering Dynamics 365 apps, Dataverse administration, and platform extensibility.</div>
+        <div class="cert-badges" id="cert-badges"></div>
+        <div class="cert-date" id="cert-date"></div>
+      </div>
+      <div class="cert-btn-row">
+        <button class="print-btn" id="print-cert">Print / Save as PDF</button>
+        <button class="print-btn secondary" id="copy-cert">Copy certificate text</button>
+        <button class="print-btn" id="report-completion-cert" style="background:var(--el-gold);border-color:var(--el-gold);color:var(--el-gold-fg);">Report your completion</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="note">Progress is saved in this browser and mirrored into the page URL so it survives sharing and reloads.<br>Sources: Microsoft Learn (learn.microsoft.com) + YouTube (Microsoft Learn, Microsoft Community Learning, and vetted community creators).<br>Open source on <a href="https://github.com/Hasan929292/dynamics-365-skilling-journey" target="_blank" rel="noopener" style="color:var(--cp-link);">GitHub</a> — edits welcome.<br><span style="display:inline-flex;align-items:center;gap:8px;margin-top:10px;"><img src="data:image/png;base64,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" alt="Microsoft Elevate" style="height:20px;width:auto;vertical-align:middle;"><span style="letter-spacing:0.04em;font-size:0.68rem;color:var(--el-steel);">Styled with Microsoft Elevate brand guidelines &middot; unofficial community project</span></span></footer>
+</div>
+
+<script>
+const TIERS = [
+  {
+    id: "t1", name: "101", icon: "01", color: "var(--tier-1)", title: "Dynamics 365 101 — Platform Fundamentals", est: "~4 hrs total",
+    desc: "What Dynamics 365 is, how the apps fit together, and the Dataverse foundation underneath them all. For everyone — business users and technical staff alike.",
+    items: [
+      { type: "video", label: "Video", icon: "VD", title: "What is Dynamics 365?", src: "Lisa Crosbie · YouTube", url: "https://www.youtube.com/watch?v=HlPyFmq3edw", mins: "~12 min" },
+      { type: "video", label: "Video", icon: "VD", title: "Introduction to Microsoft Dynamics 365 Business Central", src: "Microsoft Dynamics 365 · YouTube", url: "https://www.youtube.com/watch?v=nqM79hlHuOs", mins: "~10 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Describe Microsoft Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/describe-microsoft-dataverse/", mins: "30 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Get started using Microsoft Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-cds/", mins: "~1 hr" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Explore the fundamentals of Microsoft Dynamics 365 Sales", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/learn-fundamentals-of-microsoft-dynamics-365-sales/", mins: "~1 hr" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Explore the fundamentals of Microsoft Dynamics 365 Customer Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/learn-fundamentals-microsoft-dynamics-365-customer-service/", mins: "45 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Explore the fundamentals of Microsoft Dynamics 365 Field Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/learn-fundamentals-of-microsoft-dynamics-365-field-service/", mins: "45 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Learn the fundamentals of Microsoft Dynamics 365 Finance", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/explore-microsoft-dynamics-365-finance/", mins: "~1 hr" },
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Explore the Dynamics 365 app your team uses day-to-day and identify one workflow to try this week", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/dynamics365/get-started/training/", mins: "20 min" }
+    ]
+  },
+  {
+    id: "t2", name: "Functional Consultant", icon: "02", color: "var(--tier-2)", title: "Functional Consultant / Power User — Configure the Apps", est: "~6 hrs total",
+    desc: "Move from using Dynamics 365 to configuring it: setting up Sales, Customer Service, Field Service, and Business Central for how your business actually works.",
+    items: [
+      { type: "module", label: "Module", icon: "MD", title: "Get started with Dynamics 365 Sales", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/sales-get-started/", mins: "30 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Set up and configure Dynamics 365 Sales", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/configure-dynamics-365-sales/", mins: "40 min" },
+      { type: "video", label: "Video", icon: "VD", title: "Dynamics 365 Sales Configuration Tutorial", src: "Lisa Crosbie · YouTube", url: "https://www.youtube.com/watch?v=CrlxnlxVjJM", mins: "~20 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Get started with Dynamics 365 Customer Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-started-with-dynamics-365-for-customer-service/", mins: "30 min" },
+      { type: "video", label: "Video", icon: "VD", title: "Get started with the Case Management Agent for Dynamics 365 Customer Service", src: "Microsoft Dynamics 365 · YouTube", url: "https://www.youtube.com/watch?v=G-eI3NpRfT8", mins: "~10 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Implement Microsoft Dynamics 365 Field Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/implementing-dyn365-field-service/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Get started with Microsoft Dynamics 365 Business Central", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-dynamics-365-business-central/", mins: "~1.5 hrs" },
+      { type: "module", label: "Module", icon: "MD", title: "Manage tables in Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/create-manage-entities/", mins: "35 min" },
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Configure one real business process (a Sales stage, a Case queue, or a Business Central workflow) in a trial environment", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/dynamics365/get-started/training/", mins: "45 min" }
+    ]
+  },
+  {
+    id: "t3", name: "Administrator", icon: "03", color: "var(--tier-3)", title: "Administrator — Security, Environments & Governance", est: "~6 hrs total",
+    desc: "Support and administer the platform: security roles, environments, and governance — classroom-ready with a free instructor-led option.",
+    items: [
+      { type: "module", label: "Module", icon: "MD", title: "Get started with security concepts in Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-started-security-concepts/", mins: "25 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Get started with security roles in Microsoft Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-started-security-roles/", mins: "35 min" },
+      { type: "video", label: "Video", icon: "VD", title: "How to set up security roles in Dynamics 365", src: "Microsoft Dynamics 365 · YouTube", url: "https://www.youtube.com/watch?v=I1FvMyiPByk", mins: "~10 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Manage permissions and administration for Microsoft Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/manage-permissions-administration-common-data-service/", mins: "~1.5 hrs" },
+      { type: "module", label: "Module", icon: "MD", title: "Create and manage environments in Microsoft Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/create-manage-environments/", mins: "30 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Describe Microsoft Power Platform Administration and Governance", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/describe-microsoft-power-platform-administration-governance/", mins: "30 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Use best practices to secure and govern Microsoft Power Platform environments", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/best-practices-environments/", mins: "~2.5 hrs" },
+      { type: "module", label: "Module", icon: "MD", title: "Administer Dynamics 365 Business Central online", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/admin-online-dynamics-365-business-central/", mins: "30 min" },
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Review your environment's security roles and identify one over-permissioned role to tighten", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/power-platform/admin/security-roles-privileges", mins: "30 min" }
+    ]
+  },
+  {
+    id: "t4", name: "Developer", icon: "04", color: "var(--tier-4)", title: "Developer — Extend & Build on the Platform", est: "~9 hrs total",
+    desc: "Custom logic, plugins, client scripting, and app extensibility for developers building on Dynamics 365 and the Power Platform.",
+    items: [
+      { type: "path", label: "Learning Path", icon: "LP", title: "Introduction to developing with Power Platform", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/introduction-development-power-platform/", mins: "~1.5 hrs" },
+      { type: "module", label: "Module", icon: "MD", title: "Use developer tools to extend Power Platform", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/developer-tools-extend/", mins: "40 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Extend plug-ins in Power Platform", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/extend-plug-ins/", mins: "45 min" },
+      { type: "classroom", label: "Classroom", icon: "CR", title: "App in a Day — free instructor-led workshop (register)", src: "Microsoft, in-person/virtual", url: "https://aka.ms/appinaday", mins: "Full day" },
+      { type: "video", label: "Video", icon: "VD", title: "Plugin Development in Dynamics 365 and Power Platform", src: "Microsoft BizApps · YouTube", url: "https://www.youtube.com/watch?v=X0xG1yuIuYk", mins: "~25 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Extend the user experience with client scripting and command bar customization", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-user-experience-client-scripting-command-bar-customization/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Extending Power Platform Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-power-platform-dataverse/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Extend Dynamics 365 Customer Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-customer-service/", mins: "~1.5 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Extend finance and operations apps", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extending-finance-operations/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Get started with development in Microsoft Dynamics 365 Business Central (AL language)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/development-get-started-business-central/", mins: "~2 hrs" },
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Build and test one plugin or client-script customization in a sandbox environment", src: "Self-paced capstone", url: "https://learn.microsoft.com/en-us/power-apps/developer/data-platform/plug-ins", mins: "Capstone" }
+    ]
+  }
+];
+
+/* ---------- storage: hash-first, localStorage best-effort ---------- */
+const STORE_KEY = "cj_progress";
+const STORE_NAME_KEY = "cj_name";
+
+function hasLocalStorage() {
+  try {
+    const k = "__cj_test__";
+    localStorage.setItem(k, "1");
+    localStorage.removeItem(k);
+    return true;
+  } catch (e) { return false; }
+}
+const LS_OK = hasLocalStorage();
+
+function getFlatKeys() {
+  const flat = [];
+  TIERS.forEach(t => t.items.forEach((_, i) => flat.push(t.id + "-" + i)));
+  return flat;
+}
+const FLAT_KEYS = getFlatKeys();
+
+function parseHashState() {
+  const out = { prog: {}, name: "" };
+  if (!location.hash || location.hash.length < 2) return out;
+  try {
+    const raw = location.hash.slice(1);
+    const params = new URLSearchParams(raw);
+    const bits = params.get("p") || "";
+    FLAT_KEYS.forEach((k, i) => { if (bits[i] === "1") out.prog[k] = true; });
+    const n = params.get("n");
+    if (n) out.name = decodeURIComponent(n);
+  } catch (e) {}
+  return out;
+}
+
+function loadInitialState() {
+  const fromHash = parseHashState();
+  if (Object.keys(fromHash.prog).length > 0 || fromHash.name) return fromHash;
+  if (LS_OK) {
+    try {
+      const stored = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+      const name = localStorage.getItem(STORE_NAME_KEY) || "";
+      return { prog: stored, name };
+    } catch (e) {}
+  }
+  return { prog: {}, name: "" };
+}
+
+let progress = {};
+let certName = "";
+{
+  const init = loadInitialState();
+  progress = init.prog;
+  certName = init.name;
+}
+
+function persist() {
+  const bits = FLAT_KEYS.map(k => (progress[k] ? "1" : "0")).join("");
+  try {
+    location.hash = "p=" + bits + (certName ? "&n=" + encodeURIComponent(certName) : "");
+  } catch (e) {}
+  if (LS_OK) {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(progress));
+      localStorage.setItem(STORE_NAME_KEY, certName);
+    } catch (e) {}
+  }
+}
+
+/* ---------- toast ---------- */
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+/* ---------- clipboard fallback ---------- */
+function copyText(text, okMsg) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(
+      () => showToast(okMsg || "Copied!"),
+      () => legacyCopy(text, okMsg)
+    );
+  } else {
+    legacyCopy(text, okMsg);
+  }
+}
+function legacyCopy(text, okMsg) {
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    showToast(okMsg || "Copied!");
+  } catch (e) {
+    showToast("Copy the URL manually: " + text);
+  }
+}
+
+/* ---------- stats ---------- */
+function itemKey(tierId, idx) { return tierId + "-" + idx; }
+function tierStats(tier) {
+  const total = tier.items.length;
+  const done = tier.items.filter((_, i) => progress[itemKey(tier.id, i)]).length;
+  return { total, done, pct: total ? Math.round((done / total) * 100) : 0, complete: total > 0 && done === total };
+}
+
+/* ---------- resource card builder ---------- */
+function buildCard(tier, item, idx, showTierTag) {
+  const key = itemKey(tier.id, idx);
+  const checked = !!progress[key];
+  const card = document.createElement("div");
+  card.className = "res-card" + (checked ? " done" : "");
+  card.innerHTML = `
+    <div class="res-check ${checked ? "checked" : ""}" data-key="${key}">${checked ? "✓" : ""}</div>
+    <div class="res-type type-${item.type}"><span>${item.icon}</span></div>
+    <div class="res-body">
+      ${showTierTag ? `<div class="res-tier-tag">${tier.icon} ${tier.title}</div>` : ""}
+      <p class="res-title">${item.title}</p>
+      <div class="res-meta"><span class="tag">${item.label}</span><span>${item.src}</span><span>· ${item.mins}</span></div>
+      <p class="res-url">${item.url}</p>
+    </div>
+    <div class="res-actions">
+      <button class="res-link" type="button">Open ↗</button>
+      <button class="res-copy" type="button">Copy link</button>
+    </div>
+  `;
+  card.querySelector(".res-check").addEventListener("click", () => {
+    progress[key] = !progress[key];
+    persist();
+    renderAll();
+  });
+  // Use a JS-driven window.open instead of an <a href> so hosts that rewrite
+  // dynamically-inserted anchor hrefs (e.g. base-path injection) can't break external links.
+  card.querySelector(".res-link").addEventListener("click", () => {
+    const win = window.open(item.url, "_blank", "noopener");
+    if (!win) copyText(item.url, "Pop-up blocked — link copied instead");
+  });
+  card.querySelector(".res-copy").addEventListener("click", () => copyText(item.url, "Link copied"));
+  return card;
+}
+
+/* ---------- main render ---------- */
+let activeTabIndex = 0;
+let searchMode = false;
+
+function renderAll() {
+  const tabsEl = document.getElementById("tabs");
+  const panelsEl = document.getElementById("panels");
+  const railEl = document.getElementById("badge-rail");
+  tabsEl.innerHTML = ""; panelsEl.innerHTML = ""; railEl.innerHTML = "";
+
+  let totalAll = 0, doneAll = 0, badgesEarned = 0;
+
+  TIERS.forEach((tier, ti) => {
+    const st = tierStats(tier);
+    totalAll += st.total; doneAll += st.done;
+    if (st.complete) badgesEarned++;
+
+    const btn = document.createElement("button");
+    btn.className = "tab-btn" + (!searchMode && ti === activeTabIndex ? " active" : "");
+    btn.style.setProperty("--tier-color", tier.color);
+    btn.innerHTML = `<span class="tier-dot"></span>${tier.icon} ${tier.name}`;
+    btn.addEventListener("click", () => { searchMode = false; document.getElementById("search-input").value = ""; switchTab(ti); });
+    tabsEl.appendChild(btn);
+
+    const chip = document.createElement("div");
+    chip.className = "badge-chip" + (st.complete ? " earned" : "") + (!searchMode && ti === activeTabIndex ? " active" : "");
+    chip.style.setProperty("--tier-color", tier.color);
+    chip.addEventListener("click", () => { searchMode = false; document.getElementById("search-input").value = ""; switchTab(ti); });
+    chip.innerHTML = `
+      <div class="badge-medal">${st.complete ? "✓" : tier.icon}</div>
+      <div>
+        <div class="bc-title">${tier.name}</div>
+        <div class="bc-sub">${st.done}/${st.total} · ${st.pct}%</div>
+      </div>`;
+    railEl.appendChild(chip);
+
+    const panel = document.createElement("div");
+    panel.className = "panel" + (!searchMode && ti === activeTabIndex ? " active" : "");
+    panel.id = "panel-" + tier.id;
+    panel.style.setProperty("--tier-color", tier.color);
+
+    let calloutHtml = "";
+    if (tier.id === "t4") {
+      calloutHtml = `<div class="callout">
+        <div><strong>Classroom-ready:</strong> App in a Day is Microsoft's free instructor-led workshop for building on the Power Platform and Dynamics 365 — perfect for running this tier as an in-person session.</div>
+        <a class="pill" href="https://aka.ms/appinaday" target="_blank" rel="noopener">Register an event →</a></div>`;
+    }
+
+    panel.innerHTML = `
+      <div class="panel-head">
+        <div><h2><span class="tier-dot"></span>${tier.icon} ${tier.title}</h2><p>${tier.desc}</p></div>
+        <div class="panel-progress">${st.done} of ${st.total} complete · ${tier.est}</div>
+      </div>
+      ${calloutHtml}
+      <div class="card-grid" id="grid-${tier.id}"></div>
+    `;
+    panelsEl.appendChild(panel);
+
+    const grid = panel.querySelector("#grid-" + tier.id);
+    tier.items.forEach((item, idx) => grid.appendChild(buildCard(tier, item, idx, false)));
+  });
+
+  document.getElementById("stat-done").textContent = doneAll;
+  document.getElementById("stat-total").textContent = totalAll;
+  document.getElementById("stat-badges").textContent = badgesEarned + " / " + TIERS.length;
+  document.getElementById("overall-fill").style.width = (totalAll ? Math.round((doneAll / totalAll) * 100) : 0) + "%";
+
+  const certBadges = document.getElementById("cert-badges");
+  certBadges.innerHTML = TIERS.map(t => {
+    const s = tierStats(t);
+    return `<span class="${s.complete ? "on" : ""}" title="${t.name}">${t.icon}</span>`;
+  }).join("");
+
+  document.getElementById("panel-search").classList.toggle("active", searchMode);
+  document.getElementById("panel-cert").classList.remove("active");
+}
+
+function switchTab(index) {
+  activeTabIndex = index;
+  searchMode = false;
+  renderAll();
+}
+
+function showCertificate() {
+  searchMode = false;
+  renderAll();
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+  document.getElementById("panel-cert").classList.add("active");
+  document.querySelectorAll(".tab-btn, .badge-chip").forEach(el => el.classList.remove("active"));
+}
+
+/* ---------- search ---------- */
+function runSearch(q) {
+  const query = q.trim().toLowerCase();
+  const clearBtn = document.getElementById("search-clear");
+  if (!query) {
+    searchMode = false;
+    clearBtn.style.display = "none";
+    renderAll();
+    return;
+  }
+  searchMode = true;
+  clearBtn.style.display = "inline";
+  renderAll();
+  const grid = document.getElementById("search-grid");
+  grid.innerHTML = "";
+  let matchCount = 0;
+  TIERS.forEach(tier => {
+    tier.items.forEach((item, idx) => {
+      const hay = (item.title + " " + item.src + " " + item.label + " " + tier.name).toLowerCase();
+      if (hay.includes(query)) {
+        matchCount++;
+        grid.appendChild(buildCard(tier, item, idx, true));
+      }
+    });
+  });
+  document.getElementById("search-summary").textContent = matchCount
+    ? matchCount + " result" + (matchCount === 1 ? "" : "s") + " for \u201c" + q + "\u201d"
+    : "No results for \u201c" + q + "\u201d — try a different keyword.";
+  if (!matchCount) {
+    grid.innerHTML = '<div class="empty-state">Nothing matched. Try "agent", "excel", "studio", or "developer".</div>';
+  }
+}
+
+/* ---------- wire up ---------- */
+document.getElementById("search-input").addEventListener("input", (e) => runSearch(e.target.value));
+document.getElementById("search-clear").addEventListener("click", () => {
+  document.getElementById("search-input").value = "";
+  runSearch("");
+});
+
+document.getElementById("cert-name").value = certName;
+document.getElementById("cert-name-out").textContent = certName || "Your Name";
+document.getElementById("cert-name").addEventListener("input", (e) => {
+  certName = e.target.value.trim();
+  document.getElementById("cert-name-out").textContent = certName || "Your Name";
+  persist();
+});
+document.getElementById("cert-date").textContent = "Issued " + new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+
+document.getElementById("print-cert").addEventListener("click", () => {
+  try { window.print(); } catch (e) { showToast("Printing isn't available in this preview — try opening the file directly."); }
+});
+document.getElementById("copy-cert").addEventListener("click", () => {
+  const earned = TIERS.filter(t => tierStats(t).complete).map(t => t.name);
+  const text = "Dynamics 365 Skilling Journey — Certificate of Completion\n" +
+    (certName || "Your Name") + "\n" +
+    "Badges earned: " + (earned.length ? earned.join(", ") : "none yet") + "\n" +
+    "Issued " + new Date().toLocaleDateString();
+  copyText(text, "Certificate text copied");
+});
+
+document.getElementById("copy-resume").addEventListener("click", () => {
+  persist();
+  copyText(location.href, "Resume link copied — your progress is baked in");
+});
+
+const COMPLETION_FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRx-P_HI_jfZHp9zYFaTe11RUNUFKNDVZTTZSMEQ2UUFRRFY1S1QxR1FBWS4u";
+document.getElementById("report-completion").addEventListener("click", () => {
+  window.open(COMPLETION_FORM_URL, "_blank", "noopener");
+});
+document.getElementById("report-completion-cert").addEventListener("click", () => {
+  window.open(COMPLETION_FORM_URL, "_blank", "noopener");
+});
+
+let resetArmed = false;
+const resetBtn = document.getElementById("reset-btn");
+resetBtn.addEventListener("click", () => {
+  if (!resetArmed) {
+    resetArmed = true;
+    resetBtn.textContent = "Click again to confirm reset";
+    setTimeout(() => { resetArmed = false; resetBtn.textContent = "Reset progress"; }, 3000);
+    return;
+  }
+  progress = {};
+  certName = "";
+  document.getElementById("cert-name").value = "";
+  document.getElementById("cert-name-out").textContent = "Your Name";
+  try { location.hash = ""; } catch (e) {}
+  if (LS_OK) {
+    try { localStorage.removeItem(STORE_KEY); localStorage.removeItem(STORE_NAME_KEY); } catch (e) {}
+  }
+  resetArmed = false;
+  resetBtn.textContent = "Reset progress";
+  renderAll();
+  showToast("Progress reset");
+});
+
+document.getElementById("share-page").addEventListener("click", () => {
+  const shareData = {
+    title: "Dynamics 365 Skilling Journey",
+    text: "A free, self-paced learning path for Microsoft Dynamics 365 — 101 to Functional Consultant to Administrator to Developer.",
+    url: location.origin + location.pathname
+  };
+  if (navigator.share) {
+    navigator.share(shareData).catch(() => {});
+  } else {
+    copyText(shareData.url, "Link copied — share it anywhere");
+  }
+});
+
+/* certificate tab entry point: reuse a tab-like button appended after render */
+(function addCertTabButton() {
+  const tabsEl = document.getElementById("tabs");
+  const btn = document.createElement("button");
+  btn.className = "tab-btn";
+  btn.textContent = "Certificate";
+  btn.addEventListener("click", showCertificate);
+  // append after initial render each time tabs redraw
+  const origRender = renderAll;
+  window.__addCertBtn = () => {
+    if (!document.getElementById("cert-tab-btn")) {
+      btn.id = "cert-tab-btn";
+      tabsEl.appendChild(btn);
+    }
+  };
+})();
+
+const _origRenderAll = renderAll;
+renderAll = function () {
+  _origRenderAll();
+  window.__addCertBtn && window.__addCertBtn();
+};
+
+renderAll();
+</script>
+</body>
+</html>
