@@ -458,32 +458,35 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
 const TIERS = [
   {
     id: "t1", name: "101", icon: "01", color: "var(--tier-1)", title: "Dynamics 365 101 — Platform Fundamentals", est: "~4 hrs total",
-    desc: "What Dynamics 365 is, how the apps fit together, and the Dataverse foundation underneath them all. For everyone — business users and technical staff alike.",
+    desc: "What Dynamics 365 is, how Sales, Service, Contact Center, and Finance and Operations fit together, and the Dataverse foundation underneath. For everyone — business users and technical staff alike.",
     items: [
       { type: "video", label: "Video", icon: "VD", title: "What is Dynamics 365?", src: "Lisa Crosbie · YouTube", url: "https://www.youtube.com/watch?v=HlPyFmq3edw", mins: "~12 min" },
-      { type: "video", label: "Video", icon: "VD", title: "Introduction to Microsoft Dynamics 365 Business Central", src: "Microsoft Dynamics 365 · YouTube", url: "https://www.youtube.com/watch?v=nqM79hlHuOs", mins: "~10 min" },
+      { type: "video", label: "Video", icon: "VD", title: "Introducing Microsoft Dynamics 365 Contact Center", src: "Microsoft Dynamics 365 · YouTube", url: "https://www.youtube.com/watch?v=UeKSBD7i3RI", mins: "~8 min" },
+      { type: "video", label: "Video", icon: "VD", title: "Introduction to Dynamics 365 Finance & Operations for Beginners", src: "SheKnowsDynamics365 · YouTube", url: "https://www.youtube.com/watch?v=cqK1LpS5VOs", mins: "~15 min" },
       { type: "module", label: "Module", icon: "MD", title: "Describe Microsoft Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/describe-microsoft-dataverse/", mins: "30 min" },
       { type: "path", label: "Learning Path", icon: "LP", title: "Get started using Microsoft Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-cds/", mins: "~1 hr" },
       { type: "path", label: "Learning Path", icon: "LP", title: "Explore the fundamentals of Microsoft Dynamics 365 Sales", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/learn-fundamentals-of-microsoft-dynamics-365-sales/", mins: "~1 hr" },
       { type: "path", label: "Learning Path", icon: "LP", title: "Explore the fundamentals of Microsoft Dynamics 365 Customer Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/learn-fundamentals-microsoft-dynamics-365-customer-service/", mins: "45 min" },
-      { type: "path", label: "Learning Path", icon: "LP", title: "Explore the fundamentals of Microsoft Dynamics 365 Field Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/learn-fundamentals-of-microsoft-dynamics-365-field-service/", mins: "45 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Get started with Dynamics 365 Contact Center", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-started-contact-center/", mins: "40 min" },
       { type: "path", label: "Learning Path", icon: "LP", title: "Learn the fundamentals of Microsoft Dynamics 365 Finance", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/explore-microsoft-dynamics-365-finance/", mins: "~1 hr" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Learn the fundamentals of Microsoft Dynamics 365 Supply Chain Management", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/explore-microsoft-dynamics-365-supply-chain-management/", mins: "~1 hr" },
       { type: "lab", label: "Hands-on", icon: "HO", title: "Explore the Dynamics 365 app your team uses day-to-day and identify one workflow to try this week", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/dynamics365/get-started/training/", mins: "20 min" }
     ]
   },
   {
     id: "t2", name: "Functional Consultant", icon: "02", color: "var(--tier-2)", title: "Functional Consultant / Power User — Configure the Apps", est: "~6 hrs total",
-    desc: "Move from using Dynamics 365 to configuring it: setting up Sales, Customer Service, Field Service, and Business Central for how your business actually works.",
+    desc: "Move from using Dynamics 365 to configuring it: setting up Sales, Customer Service, Contact Center, and Finance and Operations for how your business actually works.",
     items: [
       { type: "module", label: "Module", icon: "MD", title: "Get started with Dynamics 365 Sales", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/sales-get-started/", mins: "30 min" },
       { type: "module", label: "Module", icon: "MD", title: "Set up and configure Dynamics 365 Sales", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/configure-dynamics-365-sales/", mins: "40 min" },
       { type: "video", label: "Video", icon: "VD", title: "Dynamics 365 Sales Configuration Tutorial", src: "Lisa Crosbie · YouTube", url: "https://www.youtube.com/watch?v=CrlxnlxVjJM", mins: "~20 min" },
       { type: "module", label: "Module", icon: "MD", title: "Get started with Dynamics 365 Customer Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-started-with-dynamics-365-for-customer-service/", mins: "30 min" },
       { type: "video", label: "Video", icon: "VD", title: "Get started with the Case Management Agent for Dynamics 365 Customer Service", src: "Microsoft Dynamics 365 · YouTube", url: "https://www.youtube.com/watch?v=G-eI3NpRfT8", mins: "~10 min" },
-      { type: "path", label: "Learning Path", icon: "LP", title: "Implement Microsoft Dynamics 365 Field Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/implementing-dyn365-field-service/", mins: "~2 hrs" },
-      { type: "path", label: "Learning Path", icon: "LP", title: "Get started with Microsoft Dynamics 365 Business Central", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-dynamics-365-business-central/", mins: "~1.5 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Work with Dynamics 365 Contact Center IVR", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/work-dynamics-365-contact-center-ivr/", mins: "~1.5 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Set up and configure financial management and work with General Ledger", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/set-up-configure-financial-management-work-general-ledger/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Configure and manage products and inventory in Dynamics 365 Supply Chain Management", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/configure-manage-products-inventory-dyn365-supply-chain-mgmt/", mins: "~2 hrs" },
       { type: "module", label: "Module", icon: "MD", title: "Manage tables in Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/create-manage-entities/", mins: "35 min" },
-      { type: "lab", label: "Hands-on", icon: "HO", title: "Configure one real business process (a Sales stage, a Case queue, or a Business Central workflow) in a trial environment", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/dynamics365/get-started/training/", mins: "45 min" }
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Configure one real business process (a Sales stage, a Case queue, or a General Ledger account) in a trial environment", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/dynamics365/get-started/training/", mins: "45 min" }
     ]
   },
   {
@@ -497,7 +500,7 @@ const TIERS = [
       { type: "module", label: "Module", icon: "MD", title: "Create and manage environments in Microsoft Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/create-manage-environments/", mins: "30 min" },
       { type: "module", label: "Module", icon: "MD", title: "Describe Microsoft Power Platform Administration and Governance", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/describe-microsoft-power-platform-administration-governance/", mins: "30 min" },
       { type: "path", label: "Learning Path", icon: "LP", title: "Use best practices to secure and govern Microsoft Power Platform environments", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/best-practices-environments/", mins: "~2.5 hrs" },
-      { type: "module", label: "Module", icon: "MD", title: "Administer Dynamics 365 Business Central online", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/admin-online-dynamics-365-business-central/", mins: "30 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Configure electronic reporting in Dynamics 365 Finance", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/configure-electronic-reporting-finance-operations/", mins: "35 min" },
       { type: "lab", label: "Hands-on", icon: "HO", title: "Review your environment's security roles and identify one over-permissioned role to tighten", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/power-platform/admin/security-roles-privileges", mins: "30 min" }
     ]
   },
@@ -514,7 +517,7 @@ const TIERS = [
       { type: "path", label: "Learning Path", icon: "LP", title: "Extending Power Platform Dataverse", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-power-platform-dataverse/", mins: "~2 hrs" },
       { type: "path", label: "Learning Path", icon: "LP", title: "Extend Dynamics 365 Customer Service", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-customer-service/", mins: "~1.5 hrs" },
       { type: "path", label: "Learning Path", icon: "LP", title: "Extend finance and operations apps", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extending-finance-operations/", mins: "~2 hrs" },
-      { type: "path", label: "Learning Path", icon: "LP", title: "Get started with development in Microsoft Dynamics 365 Business Central (AL language)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/development-get-started-business-central/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Extend Power Platform user experience with model-driven apps", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-power-platform-user-experience/", mins: "~1.5 hrs" },
       { type: "lab", label: "Hands-on", icon: "HO", title: "Build and test one plugin or client-script customization in a sandbox environment", src: "Self-paced capstone", url: "https://learn.microsoft.com/en-us/power-apps/developer/data-platform/plug-ins", mins: "Capstone" }
     ]
   }
